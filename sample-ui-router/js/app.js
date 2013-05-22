@@ -5,6 +5,7 @@ define([], function () {
   var app = angular.module('app', ['agt.couchPotato', 'ui.compat']);
   app.config(['$stateProvider', '$routeProvider', '$urlRouterProvider', '$couchPotatoProvider',
     function ($stateProvider,   $routeProvider,   $urlRouterProvider, $couchPotatoProvider) {
+
       $urlRouterProvider
         .when('/c?id', '/contacts/:id')
         .otherwise('/');
@@ -25,9 +26,7 @@ define([], function () {
           templateUrl: '/sample-ui-router/partials/contacts.html',
           controller: 'contactsController',
           resolve: {
-            dummy: ['$couchPotato', function($couchPotato) { $couchPotato.lazyLoad({
-              dependencies: ['controllers/contactsController']
-            });}]
+            dummy: $couchPotatoProvider.resolveDependencies(['controllers/contactsController'])
           }
         })
         .state('contacts.list', {
@@ -38,10 +37,8 @@ define([], function () {
         .state('contacts.detail', {
           // parent: 'contacts',
           url: '/{contactId}',
-          dummy: $couchPotatoProvider.lazyLoad({
-                dependencies: ['controllers/contactsDetailController']
-              }),
           resolve: {
+            dummy: $couchPotatoProvider.resolveDependencies(['controllers/contactsDetailController']),
             something:
               [        '$timeout',
               function ($timeout) {
@@ -71,9 +68,9 @@ define([], function () {
         .state('contacts.detail.item', {
           // parent: 'contacts.detail',
           url: '/item/:itemId',
-          dummy: $couchPotatoProvider.lazyLoad({
-              dependencies: ['controllers/contactsDetailItemController']
-            }),
+          resolve: {
+            dummy: $couchPotatoProvider.resolveDependencies(['controllers/contactsDetailItemController'])
+          },
           views: {
             '': {
               templateUrl: '/sample-ui-router/partials/contacts.detail.item.html',
@@ -85,9 +82,9 @@ define([], function () {
           }
         })
         .state('contacts.detail.item.edit', {
-          dummy: $couchPotatoProvider.lazyLoad({
-            dependencides: ['controllers/contactsDetailItemEditController']
-          }),
+          resolve: {
+            dummy: $couchPotatoProvider.resolveDependencies(['controllers/contactsDetailItemEditController'])
+          },
           views: {
             '@contacts.detail': {
               templateUrl: '/sample-ui-router/partials/contacts.detail.item.edit.html',

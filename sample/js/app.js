@@ -7,7 +7,7 @@ define([], function () {
     function( $routeProvider, $couchPotatoProvider) {
 
       $routeProvider.when('/view1',
-        $couchPotatoProvider.lazyLoad({
+        $couchPotatoProvider.resolveDependenciesProperty({
           templateUrl:'/sample/partials/partial1.html',
           controller: 'MyCtrl1',
           dependencies: [
@@ -19,7 +19,7 @@ define([], function () {
       );
 
       $routeProvider.when('/view2',
-        $couchPotatoProvider.lazyLoad({
+        $couchPotatoProvider.resolveDependenciesProperty({
           templateUrl:'/sample/partials/partial2.html',
           controller: 'MyCtrl2',
           dependencies: [

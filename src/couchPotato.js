@@ -46,25 +46,30 @@
         $controllerProvider.register.apply(null, controller);
     }
 
-    function lazyLoad(configProperties) {
+    function resolveDependencies(dependencies) {
       function delay($q, $rootScope) {
         var defer = $q.defer();
 
-        require(deps, function() {
+        require(dependencies, function() {
           defer.resolve();
           $rootScope.$apply();
         });
         return defer.promise;
       }
       delay.$inject = ['$q', '$rootScope'];
+      return delay;
+    }
+    this.resolveDependencies = resolveDependencies;
 
+
+    function resolveDependenciesProperty(configProperties) {
       if (configProperties.dependencies) {
         var resolveConfig = configProperties;
         var deps = configProperties.dependencies;
         delete resolveConfig['dependencies'];
 
         resolveConfig.resolve = {};
-        resolveConfig.resolve.delay = delay;
+        resolveConfig.resolve.delay = resolveDependencies(deps);
 
         return resolveConfig;
       }
@@ -74,7 +79,7 @@
       }
 
     }
-    this.lazyLoad = lazyLoad;
+    this.resolveDependenciesProperty = resolveDependenciesProperty;
 
     //***************************************
     //service definition -- expose the registration
@@ -89,7 +94,8 @@
       svc.registerDirective = registerDirective;
       svc.registerController = registerController;
 
-      svc.lazyLoad = lazyLoad;
+      svc.resolveDependenciesProperty = resolveDependenciesProperty;
+      svc.resolveDependencies = resolveDependencies;
 
       return svc;
     };

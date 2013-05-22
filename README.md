@@ -8,6 +8,8 @@ route is invoked.  It is an application's responsibility to specify directly or 
 
 ### Usage
 
+* See the [sample app](https://github.com/afterglowtech/angular-couchPotato/tree/master/sample) for a basic demonstration.  The key files to understand are js/app.js, js/couchPotatoService.js and the various components under the js/lazy directory.
+
 * Download the angular-couchPotato.js file from the src directory in this repository or depend on the the repository using [bower](https://github.com/bower/bower).
 
 * Reference the script file in your application (with or without using AMD).
@@ -20,12 +22,6 @@ route is invoked.  It is an application's responsibility to specify directly or 
 
 * See the sample app for a basic demonstration.
 
-### Example
-
-```
-.when('/someRarelyUsedRoute', $couchPotatoProvider.lazyLoad({
-
-}));
 ```
 ### History/Attribution
 

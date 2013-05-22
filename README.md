@@ -22,7 +22,6 @@ route is invoked.  It is an application's responsibility to specify directly or 
 
 * See the sample app for a basic demonstration.
 
-```
 ### History/Attribution
 
 At this time, couchPotato is essentially a repackaging of a portion of some angular seed apps that demonstrate this technique.  One of them is [angular-require-lazyload](https://github.com/szhanginrhythm/angular-require-lazyload), from which code was copied directly and reorganized/repackaged.  Aside from leveraging the dependency-management features of RequireJS to chain dependencies, it doesn't have any additional features when compared to these seed apps.  It exists because it is a succinct single module for re-use rather than a demonstration of the technique within a larger application.

@@ -12,13 +12,15 @@
   "ignore": [
     "lib",
     "node_modules",
-    "components"
+    "components",
+    "sample",
+    "sample-ui-router"
   ],
   "dependencies": {
-    "angular": "johannestroeger/bower-angular-unstable",
-    "requirejs": "~2.1.5"
   },
   "devDependencies": {
+    "angular": "johannestroeger/bower-angular-unstable",
+    "requirejs": "~2.1.5",
     "angular-ui-states": "../ui-router/build/angular-ui-states.js"
   }
 }

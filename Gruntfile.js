@@ -64,13 +64,6 @@ module.exports = function(grunt) {
         dest:'<%= dirs.dist %>/<%= pkg.name %>-min.js'
       }
     },
-    copy: {
-      bowerToComponent: {
-        files: {
-          'component.json' : 'bower.json'
-        }
-      }
-    },
     jshint:{
       files:['Gruntfile.js', '<%= dirs.src.js %>'],
       options: {

@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task.
-  grunt.registerTask('doBower', ['copy:bowerToComponent', 'bowerInstall', 'bower']);
+  grunt.registerTask('doBower', ['bowerInstall', 'bower']);
   grunt.registerTask('default', ['jshint','build']);
   grunt.registerTask('build', ['clean', 'doBower', 'concat']);
   grunt.registerTask('release', ['build','uglify:dist','jshint']);

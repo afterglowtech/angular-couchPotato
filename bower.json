@@ -18,7 +18,6 @@
     "sample-ui-router",
     "src",
     "*.js",
-    "*.md",
     "*.jshintrc",
     "*.gitignore",
     "package.json",

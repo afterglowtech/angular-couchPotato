@@ -10,10 +10,6 @@
     "url": "git://github.com/afterglowtech/angular-couchPotato.git"
   },
   "ignore": [
-    "components",
-    "dist/dependencies",
-    "lib",
-    "node_modules",
     "sample",
     "sample-ui-router",
     "src",

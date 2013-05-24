@@ -1,6 +1,6 @@
 {
   "name": "angular-couchPotato",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": [
     "dist/angular-couchPotato.js"
   ],
@@ -16,8 +16,7 @@
     "*.js",
     "*.jshintrc",
     "*.gitignore",
-    "package.json",
-    "sample-server"
+    "package.json"
   ],
   "dependencies": {
   },

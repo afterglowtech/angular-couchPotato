@@ -6,13 +6,22 @@
 Applications specify dependencies of their routes when the routes are *configured*.  Those dependencies are kept in a promise function.  When the routes are *invoked*, the promise function is resolved, and the couchPotato *provider* uses the AMD api to download the dependencies (which are defined as AMD modules).  The dependencies invoke the couchPotato *service* to register themselves.  Since each component registers itself, indirect dependencies specified in AMD form are downloaded and registered along with the directly stated dependencies of the route.  couchPotato does not care which dependencies are resolved when the
 route is invoked.  It is an application's responsibility to specify directly or indirectly all requirements.
 
-### Usage
+See the [sample app](https://github.com/afterglowtech/angular-couchPotato/tree/master/sample) or the [ui-router sample app](https://github.com/afterglowtech/angular-couchPotato/tree/master/sample-ui-router) for basic demonstrations.  The key files to understand are js/app.js, js/couchPotatoService.js and the various components under the js/lazy and js/controllers directories for the respective samples.
 
-* See the [sample app](https://github.com/afterglowtech/angular-couchPotato/tree/master/sample) for a basic demonstration.  The key files to understand are js/app.js, js/couchPotatoService.js and the various components under the js/lazy directory.
+To run them:
+* clone the repository
+* npm install
+* grunt build
+* node sample-server.js
+* visit localhost:3006/sample or localhost:3006/sample-ui-router
+
+### General Usage
+
+*better instructions are needed -- for now it's probably easier to look at the samples*
 
 * Download the angular-couchPotato.js file from the src directory in this repository or depend on the the repository using [bower](https://github.com/bower/bower).
 
-* Reference the script file in your application (with or without using AMD).
+* Reference the script file in your application.
 
 * Your application module should depend on the 'agt.couchPotato' module.
 
@@ -24,7 +33,7 @@ route is invoked.  It is an application's responsibility to specify directly or 
 
 ### History/Attribution
 
-At this time, couchPotato is essentially a repackaging of a portion of some angular seed apps that demonstrate this technique.  One of them is [angular-require-lazyload](https://github.com/szhanginrhythm/angular-require-lazyload), from which code was copied directly and reorganized/repackaged.  Aside from leveraging the dependency-management features of RequireJS to chain dependencies, it doesn't have any additional features when compared to these seed apps.  It exists because it is a succinct single module for re-use rather than a demonstration of the technique within a larger application.
+At this time, couchPotato is essentially a formalization of a portion of some angular seed apps that demonstrate this technique.  One of them is [angular-require-lazyload](https://github.com/szhanginrhythm/angular-require-lazyload), from which code was copied directly and reorganized/repackaged.  Aside from leveraging the dependency-management features of AMD to chain dependencies, it doesn't have any additional features when compared to these seed apps.
 
 ### License
 

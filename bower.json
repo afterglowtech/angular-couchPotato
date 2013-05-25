@@ -23,6 +23,6 @@
   "devDependencies": {
     "angular": "johannestroeger/bower-angular-unstable",
     "requirejs": "~2.1.5",
-    "angular-ui-states": "../ui-router/build/angular-ui-states.js"
+    "angular-ui-states": "angular-ui/ui-router"
   }
 }

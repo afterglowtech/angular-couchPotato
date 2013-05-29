@@ -1,6 +1,5 @@
 ## angular-couchPotato: Lazy-Load and Register Components in AngularJS Applications
 
----
 **couchPotato** aids in the lazy download and registration of services, directives, controllers and filters just-in-time.  It supports hierarchies of dependencies within these components.  Applications can use couchPotato to download and register components when they are needed to satisfy the requirements of a given *route*.
 
 Applications specify dependencies of their routes when the routes are *configured*.  Those dependencies are kept in a promise function.  When the routes are *invoked*, the promise function is resolved, and the couchPotato *provider* uses the AMD api to download the dependencies (which are defined as AMD modules).  The dependencies invoke the couchPotato *service* to register themselves.  Since each component registers itself, indirect dependencies specified in AMD form are downloaded and registered along with the directly stated dependencies of the route.  couchPotato does not care which dependencies are resolved when the

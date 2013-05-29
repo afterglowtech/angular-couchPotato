@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: '/sample-ui-router/js'
+  baseUrl: '/js'
 });
 
 require( [

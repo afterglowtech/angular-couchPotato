@@ -3,12 +3,19 @@ define([], function () {
 
   //var maidService;
   var app = angular.module('app', ['agt.couchPotato']);
-  app.config(['$routeProvider', '$couchPotatoProvider',
-    function( $routeProvider, $couchPotatoProvider) {
+  app.config(['$routeProvider', '$couchPotatoProvider', '$locationProvider', '$provide',
+    function( $routeProvider, $couchPotatoProvider, $locationProvider, $provide) {
+      //comment out the decorator function for html5mode
+      //uncomment the decorator function for force hash(bang) mode
+      // $provide.decorator('$sniffer', function($delegate) {
+      //   $delegate.history = false;
+      //   return $delegate;
+      // });
+      $locationProvider.html5Mode(true);
 
       $routeProvider.when('/view1',
         $couchPotatoProvider.resolveDependenciesProperty({
-          templateUrl:'/sample/partials/partial1.html',
+          templateUrl:'/partials/partial1.html',
           controller: 'MyCtrl1',
           dependencies: [
             //lazy/services/version is an indirect dependency
@@ -20,7 +27,7 @@ define([], function () {
 
       $routeProvider.when('/view2',
         $couchPotatoProvider.resolveDependenciesProperty({
-          templateUrl:'/sample/partials/partial2.html',
+          templateUrl:'/partials/partial2.html',
           controller: 'MyCtrl2',
           dependencies: [
             'lazy/controllers/myCtrl2',

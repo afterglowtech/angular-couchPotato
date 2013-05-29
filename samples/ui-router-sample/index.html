@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title ng-bind="$state.current.name + ' - angular-states'">angular-states using couchPotato</title>
-    <link rel="stylesheet" type="text/css" href="/sample-ui-router/css/bootstrap.min.css">
+    <title ng-bind="$state.current.name + ' - angular-states'">ui-router using couchPotato</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <base href="/"/>
     <script src="/dist/dependencies/angular.js"></script>
-    <script src="/dist/dependencies/angular-ui-states.js"></script>
+    <script src="/dist/dependencies/angular-ui-router.js"></script>
     <script src="/dist/angular-couchPotato.js"></script>
     <script data-main="js/main" src="/dist/dependencies/requirejs.js"></script>
     <script>
@@ -20,10 +21,10 @@ function findById(a, id) {
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner"><div class="container">
-    <a class="brand" href="#">ngStates</a>
+    <a class="brand" href ng-click="$state.transitionTo('home')">ui-router using couchPotato</a>
     <ul class="nav">
-      <li ng-class="{ active: $state.includes('contacts') }"><a href="#/contacts">Contacts</a></li>
-      <li ng-class="{ active: $state.includes('about') }"><a href="#/about">About</a></li>
+      <li ng-class="{ active: $state.includes('contacts') }"><a href="/contacts">Contacts</a></li>
+      <li ng-class="{ active: $state.includes('about') }"><a href="/about">About</a></li>
     </ul>
     <p class="navbar-text pull-right" ui-view="hint"></p>
   </div></div>

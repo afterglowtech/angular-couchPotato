@@ -1,8 +1,8 @@
 {
   "name": "angular-couchPotato",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": [
-    "dist/angular-couchPotato.js"
+    "dist/angular-couchPotato.min.js"
   ],
   "description": "Provider to Lazy-Load Components in AngularJS Applications",
   "repository": {
@@ -10,8 +10,7 @@
     "url": "git://github.com/afterglowtech/angular-couchPotato.git"
   },
   "ignore": [
-    "sample",
-    "sample-ui-router",
+    "samples",
     "src",
     "*.js",
     "*.jshintrc",
@@ -23,6 +22,6 @@
   "devDependencies": {
     "angular": "johannestroeger/bower-angular-unstable",
     "requirejs": "~2.1.5",
-    "angular-ui-states": "angular-ui/ui-router"
+    "angular-ui-router": "./src/angular-ui-router.js"
   }
 }

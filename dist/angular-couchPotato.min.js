@@ -1,6 +1,6 @@
-/*! angular-couchPotato - v0.0.2 - 2013-05-24
+/*! angular-couchPotato - v0.0.4 - 2013-05-29
  * https://github.com/afterglowtech/angular-couchPotato
- * Copyright (c) 2013 [object Object];
+ * Copyright (c) 2013 Stu Salsbury;
  *    Uses software code found at https://github.com/szhanginrhythm/angular-require-lazyload
  * Licensed MIT
  */

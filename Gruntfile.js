@@ -9,7 +9,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task.
   grunt.registerTask('doBower', ['bowerInstall', 'bower']);
   grunt.registerTask('default', ['jshint','build']);
   grunt.registerTask('build', ['clean', 'doBower', 'concat']);
@@ -25,14 +24,14 @@ module.exports = function(grunt) {
     dirs: {
       dist: 'dist',
       src: {
-        js: ['src/**/*.js']
+        js: ['src/**/couchPotato.js']
       }
     },
     pkg: grunt.file.readJSON('package.json'),
     banner:
     '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
     '<%= pkg.homepage ? " * " + pkg.homepage + "\\n" : "" %>' +
-    ' * Copyright (c) <%= grunt.template.today(\'yyyy\') %> <%= pkg.author %>;\n' +
+    ' * Copyright (c) <%= grunt.template.today(\'yyyy\') %> <%= pkg.author.name %>;\n' +
     ' *    Uses software code found at https://github.com/szhanginrhythm/angular-require-lazyload\n' +
     ' * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n */\n',
     clean: ['<%= dirs.dist %>/*'],
@@ -45,7 +44,7 @@ module.exports = function(grunt) {
       install: {
       }
     },
-    concat:{
+    concat: {
       dist: {
         options: {
           banner: '<%= banner %>',
@@ -61,7 +60,7 @@ module.exports = function(grunt) {
           banner: '<%= banner %>'
         },
         src:'<%= dirs.dist %>/<%= pkg.name %>.js',
-        dest:'<%= dirs.dist %>/<%= pkg.name %>-min.js'
+        dest:'<%= dirs.dist %>/<%= pkg.name %>.min.js'
       }
     },
     jshint:{

@@ -1,7 +1,7 @@
 {
   "name": "angular-couchPotato",
   "description": "Provider to Lazy-Load Components in AngularJS Applications",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "homepage": "https://github.com/afterglowtech/angular-couchPotato",
   "author": {
     "name": "Stu Salsbury",
@@ -19,6 +19,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "express": "~3.5.2",
     "grunt-cli": ">= 0.1.7",
     "grunt-bower": "~0.5.1",
     "grunt-bower-task": "~0.2.3",

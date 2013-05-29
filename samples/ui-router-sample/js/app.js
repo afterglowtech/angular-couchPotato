@@ -1,10 +1,17 @@
 define([], function () {
   'use strict';
 
-  //var maidService;
   var app = angular.module('app', ['agt.couchPotato', 'ui.compat']);
-  app.config(['$stateProvider', '$routeProvider', '$urlRouterProvider', '$couchPotatoProvider',
-    function ($stateProvider,   $routeProvider,   $urlRouterProvider, $couchPotatoProvider) {
+  app.config(['$stateProvider', '$routeProvider', '$urlRouterProvider', '$couchPotatoProvider', '$locationProvider', '$provide',
+    function ($stateProvider,   $routeProvider,   $urlRouterProvider, $couchPotatoProvider, $locationProvider, $provide) {
+      //comment out the decorator function for html5mode
+      //uncomment the decorator function for force hash(bang) mode
+      // $provide.decorator('$sniffer', function($delegate) {
+      //   $delegate.history = false;
+      //   return $delegate;
+      // });
+      $locationProvider.html5Mode(true);
+
 
       $urlRouterProvider
         .when('/c?id', '/contacts/:id')
@@ -13,17 +20,18 @@ define([], function () {
       $routeProvider
         .when('/user/:id', {
           redirectTo: '/contacts/:id'
-        })
-        .when('/', {
-          template: '<p class="lead">Welcome to the ngStates sample</p><p>Use the menu above to navigate</p>' +
-            '<p>Look at <a href="#/c?id=1">Alice</a> or <a href="#/user/42">Bob</a> to see a URL with a redirect in action.<' + '/p>'
         });
 
       $stateProvider
+        .state('home', {
+          url: '/',
+          template: '<p class="lead">Welcome to the ngStates sample</p><p>Use the menu above to navigate</p>' +
+            '<p>Look at <a href="/c?id=1">Alice</a> or <a href="/user/42">Bob</a> to see a URL with a redirect in action.<' + '/p>'
+        })
         .state('contacts', {
           url: '/contacts',
           abstract: true,
-          templateUrl: '/sample-ui-router/partials/contacts.html',
+          templateUrl: '/partials/contacts.html',
           controller: 'contactsController',
           resolve: {
             dummy: $couchPotatoProvider.resolveDependencies(['controllers/contactsController'])
@@ -32,7 +40,7 @@ define([], function () {
         .state('contacts.list', {
           // parent: 'contacts',
           url: '',
-          templateUrl: '/sample-ui-router/partials/contacts.list.html'
+          templateUrl: '/partials/contacts.list.html'
         })
         .state('contacts.detail', {
           // parent: 'contacts',
@@ -47,7 +55,7 @@ define([], function () {
           },
           views: {
             '': {
-              templateUrl: '/sample-ui-router/partials/contacts.detail.html',
+              templateUrl: '/partials/contacts.detail.html',
               controller: 'contactsDetailController'
             },
             'hint@': {
@@ -73,7 +81,7 @@ define([], function () {
           },
           views: {
             '': {
-              templateUrl: '/sample-ui-router/partials/contacts.detail.item.html',
+              templateUrl: '/partials/contacts.detail.item.html',
               controller: 'contactsDetailItemController'
             },
             'hint@': {
@@ -87,7 +95,7 @@ define([], function () {
           },
           views: {
             '@contacts.detail': {
-              templateUrl: '/sample-ui-router/partials/contacts.detail.item.edit.html',
+              templateUrl: '/partials/contacts.detail.item.edit.html',
               controller: 'contactsDetailItemEditController'
             }
           }

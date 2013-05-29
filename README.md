@@ -12,8 +12,9 @@ To run them:
 * clone the repository
 * npm install
 * grunt build
-* node sample-server.js
-* visit localhost:3006/sample or localhost:3006/sample-ui-router
+* cd into *samples/components-demo* or *samples/ui-router-sample*
+* node server.js
+* visit localhost:3006
 
 ### General Usage
 

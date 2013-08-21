@@ -1,3 +1,12 @@
+# deprecated -- use [stu-salsbury/ng-couch-potato](https://github.com/stu-salsbury/ng-couch-potato)
+
+Version 0.0.5 of afterglowtech/angular-couchPotato intentionally throws an error.
+
+Version 0.0.4 is the last functional version on this branch.  Please migrate.  Version 0.0.5 in that repository is
+functionally identical to 0.0.4 in this repository.
+
+## Following is the old readme.
+
 ## angular-couchPotato: Lazy-Load and Register Components in AngularJS Applications
 
 **couchPotato** aids in the lazy download and registration of services, directives, controllers and filters just-in-time.  It supports hierarchies of dependencies within these components.  Applications can use couchPotato to download and register components when they are needed to satisfy the requirements of a given *route*.

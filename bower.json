@@ -4,7 +4,7 @@
   "main": [
     "dist/angular-couchPotato.min.js"
   ],
-  "description": "deprecated -- use stu-salsbury/ng-couch-potato",
+  "description": "deprecated -- use stu-salsbury/angular-couch-potato",
   "repository": {
     "type": "git",
     "url": "git://github.com/afterglowtech/angular-couchPotato.git"

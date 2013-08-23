@@ -1,4 +1,4 @@
-# deprecated -- use [stu-salsbury/ng-couch-potato](https://github.com/stu-salsbury/ng-couch-potato)
+# deprecated -- use [stu-salsbury/angular-couch-potato](https://github.com/stu-salsbury/angular-couch-potato)
 
 Version 0.0.5 of afterglowtech/angular-couchPotato intentionally throws an error.
 
